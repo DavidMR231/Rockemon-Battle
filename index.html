@@ -10,7 +10,7 @@
 
     <section id="seleccionar-mascota">
       <h2>Elige tu mascota:</h2>
-      <select>
+      <select id="mascotas">
         <optgroup label="Agua">
           <option value="hipodoge">Hipodoge 💧</option>
           <option value="suggles">Suggles 💧</option>
@@ -21,7 +21,7 @@
         </optgroup>
         <optgroup label="Fuego">
           <option value="ratigueya">Ratigueya 🔥</option>
-          <option value="kailamor">KaiIamor 🔥</option>
+          <option value="kailamor">Kailamor 🔥</option>
         </optgroup>
         <optgroup label="Hibrido">
           <option value="tucapalma">Tucapa1ma 💧🌱</option>
@@ -35,8 +35,8 @@
     <section id="seleccionar-ataque">
       <h2>Elige tu ataque:</h2>
 
-      <p>Tu mascota tiene <span>3</span> vidas</p>
-      <p>La mascota del enemigo tiene <span>3</span> vidas</p>
+      <p>Tu mascota <span id="mascotajugador"></span> tiene <span>3</span> vidas</p>
+      <p>La mascota <span id="mascotaenemigo"></span>del enemigo tiene <span>3</span> vidas</p>
 
       <p>
         <button id="btn-Fuego">Fuego 🔥</button>
