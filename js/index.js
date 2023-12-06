@@ -12,11 +12,11 @@ function iniciarJuego() {
   btnAgua.addEventListener("click", ataqueAgua);
   let btnTierra = document.getElementById("btn-tierra");
   btnTierra.addEventListener("click", ataqueTierra);
-  let btnReiniciar = document.getElementById("btn-volver-jugar");
-  let btnTerminar = document.getElementById("btn-terminar");
-
+  let btnReiniciar = document.getElementById("btn-reiniciar");
   btnReiniciar.addEventListener("click", reiniciarJuego);
+  let btnTerminar = document.getElementById("btn-terminar");
   btnTerminar.addEventListener("click", terminarJuego);
+
 }
 
 function seleccionarMascotaJugador() {
@@ -113,17 +113,19 @@ function crearMensajeFinal(resultadoFinal) {
   parrafo.innerHTML = resultadoFinal;
 
   sectionMensajes.appendChild(parrafo);
+
+  let btnFuego = document.getElementById("btn-fuego");
+  btnFuego.disabled=true
+  let btnAgua = document.getElementById("btn-agua");
+  btnAgua.disabled=true
+  let btnTierra = document.getElementById("btn-tierra");
+  btnTierra.disabled=true
+}
+function reiniciarJuego() {
+  location.reload();
 }
 function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-function reiniciarJuego() {
-  // Lógica para reiniciar el juego
-}
-
-function terminarJuego() {
-  // Lógica para terminar el juego
 }
 
 document.addEventListener("DOMContentLoaded", iniciarJuego);
