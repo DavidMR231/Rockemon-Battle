@@ -1,5 +1,7 @@
 let ataqueJugador;
 let ataqueEnemigo;
+let vidasEnemigo = 3;
+let vidasJugador = 3;
 
 function iniciarJuego() {
   let btnSeleccionarMascota = document.getElementById("btn-seleccionar");
@@ -61,23 +63,38 @@ function ataqueAleatorioEnemigo() {
   crearMensaje();
 }
 function combate() {
-  if (ataqueEnemigo == ataqueJugador) {
-    crearMensaje("Empate");
-  } else if (
-    (ataqueJugador == "Fuego 🔥" && ataqueEnemigo == "Tierra 🌱") ||
-    (ataqueJugador == "Agua 💧" && ataqueEnemigo == "Fuego 🔥") ||
-    (ataqueJugador == "Tierra 🌱" && ataqueEnemigo == "Agua 💧")
-  ) {
-    crearMensaje("GANASTE🏆");
-  } else {
-    crearMensaje("Perdiste");
-  }
-  crearMensaje(resultado)
-}
+  let spanVidasJugador = document.getElementById("vidas-jugador");
+  let spanVidasEnemigo = document.getElementById("vidas-enemigo");
+  while (vidasEnemigo > 0 && vidasJugador > 0) {
+    if (ataqueEnemigo == ataqueJugador) {
+      crearMensaje("EMPATE");
+    } else if (
+      (ataqueJugador == "Fuego 🔥" && ataqueEnemigo == "Tierra 🌱") ||
+      (ataqueJugador == "Agua 💧" && ataqueEnemigo == "Fuego 🔥") ||
+      (ataqueJugador == "Tierra 🌱" && ataqueEnemigo == "Agua 💧")
+    ) {
+      crearMensaje("GANASTE");
+      vidasEnemigo--;
+      spanVidasEnemigo.innerHTML = vidasEnemigo;
+    } else {
+      crearMensaje("PERDISTE");
+      vidasJugador--;
+      spanVidasJugador.innerHTML = vidasJugador;
 
+    }
+    revisarVidas();
+    crearMensaje(resultado);
+}
+}
+function revisarVidas() {
+  if (vidasEnemigo == 0) {
+    crearMensajeFinal("Felicidades ganaste");
+  } else if (vidasJugador == 0) {
+    crearMensajeFinal("Lo siento. Perdiste");
+  }
+}
 function crearMensaje(resultado) {
   let sectionMensajes = document.getElementById("mensaje");
-
   let parrafo = document.createElement("p");
   parrafo.innerHTML =
     "Tu mascota atacó con " +
@@ -86,6 +103,14 @@ function crearMensaje(resultado) {
     ataqueEnemigo +
     ". " +
     resultado;
+
+  sectionMensajes.appendChild(parrafo);
+}
+function crearMensajeFinal(resultadoFinal) {
+  let sectionMensajes = document.getElementById("mensaje");
+
+  let parrafo = document.createElement("h2");
+  parrafo.innerHTML = resultadoFinal;
 
   sectionMensajes.appendChild(parrafo);
 }
