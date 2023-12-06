@@ -4,6 +4,10 @@ let vidasEnemigo = 3;
 let vidasJugador = 3;
 
 function iniciarJuego() {
+  let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
+  sectionSeleccionarAtaque.style.display = "none";
+  let sectionReiniciar = document.getElementById("btn-reiniciar");
+  sectionReiniciar.style.display = "none";
   let btnSeleccionarMascota = document.getElementById("btn-seleccionar");
   btnSeleccionarMascota.addEventListener("click", seleccionarMascotaJugador);
   let btnFuego = document.getElementById("btn-fuego");
@@ -16,10 +20,13 @@ function iniciarJuego() {
   btnReiniciar.addEventListener("click", reiniciarJuego);
   let btnTerminar = document.getElementById("btn-terminar");
   btnTerminar.addEventListener("click", terminarJuego);
-
 }
 
 function seleccionarMascotaJugador() {
+    let sectionSeleccionarMascota = document.getElementById("seleccionar-mascota");
+    sectionSeleccionarMascota.style.display = "none";
+  let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
+  sectionSeleccionarAtaque.style.display = "block";
   let spanMascotaJugador = document.getElementById("mascota-jugador");
   let seleccion = document.getElementById("mascotas");
   let mascotaSeleccionada = seleccion.options[seleccion.selectedIndex].text;
@@ -80,11 +87,10 @@ function combate() {
       crearMensaje("PERDISTE");
       vidasJugador--;
       spanVidasJugador.innerHTML = vidasJugador;
-
     }
     revisarVidas();
     crearMensaje(resultado);
-}
+  }
 }
 function revisarVidas() {
   if (vidasEnemigo == 0) {
@@ -115,11 +121,13 @@ function crearMensajeFinal(resultadoFinal) {
   sectionMensajes.appendChild(parrafo);
 
   let btnFuego = document.getElementById("btn-fuego");
-  btnFuego.disabled=true
+  btnFuego.disabled = true;
   let btnAgua = document.getElementById("btn-agua");
-  btnAgua.disabled=true
+  btnAgua.disabled = true;
   let btnTierra = document.getElementById("btn-tierra");
-  btnTierra.disabled=true
+  btnTierra.disabled = true;
+  let sectionReiniciar = document.getElementById("btn-reiniciar");
+  sectionReiniciar.style.display = "block";
 }
 function reiniciarJuego() {
   location.reload();
