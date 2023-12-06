@@ -1,12 +1,13 @@
 function iniciarjuego() {
-    let btnSeleccionarMascota = document.getElementById("btn-seleccionar");
-    btnSeleccionarMascota.addEventListener("click", seleccionarMascotaJugador);
+  let btnSeleccionarMascota = document.getElementById("btn-seleccionar");
+  btnSeleccionarMascota.addEventListener("click", seleccionarMascotaJugador);
 }
 
 function seleccionarMascotaJugador() {
-    let seleccion = document.getElementById("mascotas");
-    let mascotaSeleccionada = seleccion.options[seleccion.selectedIndex].text;
-    alert("Usted ha seleccionado " + mascotaSeleccionada);
+  let spanMascotaJugador = document.getElementById("mascota-jugador");
+  let seleccion = document.getElementById("mascotas");
+  let mascotaSeleccionada = seleccion.options[seleccion.selectedIndex].text;
+  spanMascotaJugador.innerHTML = mascotaSeleccionada;
 }
 
 let btnReiniciar = document.getElementById("btn-volver-jugar");
