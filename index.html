@@ -3,14 +3,33 @@
   <head>
     <meta charset="utf-8" />
     <title>MOKEPON!</title>
+    <script src="./js/index.js"></script>
   </head>
   <body>
-    <h1>MOKEPON! 🌱🔥💧🌪⚡</h1>
+    <h1>MOKEPON! 🌱🔥💧</h1>
 
     <section id="seleccionar-mascota">
       <h2>Elige tu mascota:</h2>
+      <select>
+        <optgroup label="Agua">
+          <option value="hipodoge">Hipodoge 💧</option>
+          <option value="suggles">Suggles 💧</option>
+        </optgroup>
+        <optgroup label="Tierra">
+          <option value="capipepo">Capipepo 🌱</option>
+          <option value="todd">Todd 🌱</option>
+        </optgroup>
+        <optgroup label="Fuego">
+          <option value="ratigueya">Ratigueya 🔥</option>
+          <option value="kailamor">KaiIamor 🔥</option>
+        </optgroup>
+        <optgroup label="Hibrido">
+          <option value="tucapalma">Tucapa1ma 💧🌱</option>
+          <option value="pydos">Pydos🌱🔥</option>
+        </optgroup>
+      </select>
 
-      <button>Seleccionar</button>
+      <button id="btn-seleccionar">Seleccionar</button>
     </section>
 
     <section id="seleccionar-ataque">
@@ -20,11 +39,9 @@
       <p>La mascota del enemigo tiene <span>3</span> vidas</p>
 
       <p>
-        <button>Fuego 🔥</button>
-        <button>Agua 💧</button>
-        <button>Tierra 🌱</button>
-        <button>Aire 🌪</button>
-        <button>Rayo ⚡</button>
+        <button id="btn-Fuego">Fuego 🔥</button>
+        <button id="btn-agua">Agua 💧</button>
+        <button id="btn-tierra">Tierra 🌱</button>
       </p>
     </section>
     <section id="Mensaje"></section>
@@ -34,7 +51,8 @@
     </p>
 
     <section id="reiniciar">
-      <button>Reiniciar⛔</button>
+      <button id="btn-volver-jugar">Volver a jugar</button>
+      <button id="btn-terminar">Terminar</button>
     </section>
   </body>
 </html>
