@@ -1,13 +1,15 @@
-let ataquejugador = function iniciarjuego() {
+let ataqueJugador
+let ataqueEnemigo 
+function iniciarJuego() {
   let btnSeleccionarMascota = document.getElementById("btn-seleccionar");
   btnSeleccionarMascota.addEventListener("click", seleccionarMascotaJugador);
-  let btnFuego = document.getElementById("btn-fuego");
-  btnFuego.addEventListener("click", ataqueFuego);
-  let btnAgua = document.getElementById("btn-agua");
-  btnAgua.addEventListener("click", ataqueAgua);
-  let btnTierra = document.getElementById("btn-tierra");
-  btnTierra.addEventListener("click", atagueTierra);
-};
+  let btnFuego = document.getElementById("btn-fuego")
+  btnFuego.addEventListener("click", ataqueFuego)
+  let btnAgua = document.getElementById("btn-agua")
+  btnAgua.addEventListener("click", ataqueAgua)
+  let btnTierra = document.getElementById("btn-tierra")
+  btnTierra.addEventListener("click", ataqueTierra)
+}
 
 function seleccionarMascotaJugador() {
   let spanMascotaJugador = document.getElementById("mascota-jugador");
@@ -17,26 +19,38 @@ function seleccionarMascotaJugador() {
   seleccionarMascotaEnemigo();
 }
 function seleccionarMascotaEnemigo() {
-  let ataquealeatorio = aleatorio(1, 8);
+  let mascotaAleatoria = aleatorio(1, 8);
   let seleccion = document.getElementById("mascotas");
-  let opcionAleatoria = seleccion.options[ataquealeatorio - 1];
+  let opcionAleatoria = seleccion.options[mascotaAleatoria - 1];
   let spanMascotaEnemigo = document.getElementById("mascota-enemigo");
   spanMascotaEnemigo.textContent = opcionAleatoria.text;
 }
 function ataqueFuego() {
-  ataquejugador = "Fuego";
+    ataqueJugador = "Fuego"
+    ataqueAleatorioEnemigo()
 }
 function ataqueAgua() {
-  ataquejugador = "Agua";
+    ataqueJugador = "Agua"
+    ataqueAleatorioEnemigo()
 }
 function ataqueTierra() {
-  ataquejugador = "Tierra";
+    ataqueJugador = "Tierra"
+    ataqueAleatorioEnemigo()
+}
+function ataqueAleatorioEnemigo() {
+  let AtaqueAleatorio = aleatorio(1, 3);
+  if (AtaqueAleatorio == 1) {
+    ataqueEnemigo = ("Fuego")
+  } else if (AtaqueAleatorio == 2) {
+    ataqueEnemigo = ("Agua")
+  } else {
+    ataqueEnemigo = ("Tierra")
+  }
 }
 function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
 let btnReiniciar = document.getElementById("btn-volver-jugar");
 let btnTerminar = document.getElementById("btn-terminar");
 
-document.addEventListener("DOMContentLoaded", iniciarjuego);
+document.addEventListener("DOMContentLoaded", iniciarJuego);
