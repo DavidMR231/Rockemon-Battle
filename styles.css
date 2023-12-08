@@ -43,6 +43,7 @@ body {
   display: grid;
   grid-template-columns: 140px 140px;
 }
+
 #mensaje-mascota-jugador {
   font-size: 20px;
 }
