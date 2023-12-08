@@ -4,12 +4,13 @@
     <meta charset="utf-8" />
     <title>MOKEPON!</title>
     <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <h1>MOKEPON! 🌱🔥💧</h1>
-
+  <body id="cuerpo">
+    <div>
     <section id="seleccionar-mascota">
-      <h2>Elige tu mascota:</h2>
+      <h1 class="titulo">MOKEPON</h1>
+      <h2 class="subtitulo">Elige tu mascota:</h2>
       <select id="mascotas">
         <optgroup label="Agua">
           <option value="hipodoge">Hipodoge 💧</option>
@@ -28,30 +29,44 @@
           <option value="pydos">Pydos🌱🔥</option>
         </optgroup>
       </select>
-      
       <button id="btn-seleccionar">Seleccionar</button>
-    </section>
-    
-    <section id="seleccionar-ataque">
-      <p>
-        Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas
-      </p>
-      <p>
-        La mascota <span id="mascota-enemigo"></span>del enemigo tiene
-        <span id="vidas-enemigo">3</span> vidas
-      </p>
-      <h2>Elige tu ataque:</h2>
+    </div>
 
+    </section>
+    <section id="seleccionar-ataque">
+      <h1 class="titulo">MOKEPON</h1>
+      <h2 id="mensaje-ataque">Elige tu ataque:</h2>
+      </p>
+      
       <p>
         <button id="btn-fuego">Fuego 🔥</button>
         <button id="btn-agua">Agua 💧</button>
         <button id="btn-tierra">Tierra 🌱</button>
       </p>
     </section>
-    <section id="mensaje">
+    <!-- Sección para mostrar información de mascotas y ataques -->
+    <div class="ataque-final">
+      <!-- Información del jugador -->
+      <div>
+        <p id="nombre-jugador">Tu:</p>
+        <p id="vidas-jugador">3</p>
+        <p id="mascota-jugador"></p>
+        <p id="ataques-jugador"></p>
+      </div>
+
+      <!-- Información del enemigo -->
+      <div>
+        <p id="nombre-enemigo">Enemigo:</p>
+        <p id="vidas-enemigo">3</p>
+        <p id="mascota-enemigo"></p>
+        <p id="ataques-enemigo"></p>
+      </div>
+    </div>
+    <section id="resultados">
+      <p id="resultado"></p>
     </section>
     <section>
-      <button id="btn-reiniciar">reiniciar</button>
+      <button id="btn-reiniciar">Reiniciar</button>
     </section>
   </body>
 </html>
