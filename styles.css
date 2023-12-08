@@ -1,56 +1,10 @@
-/* Resetear algunos estilos por defecto del navegador */
-body,
-h1,
-h2,
-p,
-button,
-select {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&display=swap');
 
-/* Fondo y estilos generales del cuerpo */
 body {
-  background: linear-gradient(to right, #36d1dc, #5b86e5);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-color: #041562;
 }
 
-/* Estilos del título */
-
-.titulo {
-  color: #0077cc;
-  font-size: 40px;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-.subtitulo {
-  height: 50px;
-  font-size: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ataque-final {
-  display: grid;
-  grid-template-columns: 140px 140px;
-}
-
-#mensaje-mascota-jugador {
-  font-size: 20px;
-}
-#mensaje-mascota-enemigo {
-  font-size: 20px;
-}
-/* Sección para seleccionar mascota */
 #seleccionar-mascota {
   display: flex;
   flex-direction: column;
@@ -58,130 +12,117 @@ body {
   align-items: center;
 }
 
-/* Estilos del select de mascotas */
-#mascotas {
-  height: 40px;
-  width: 200px;
-  font-size: 16px;
-  border: 2px solid #fff;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  outline: none;
-  background-color: transparent;
-  color: #fff;
+.titulo {
+  color: white;
+  font-size: 32px;
+  font-family: 'Fredoka One', cursive;
 }
-#mensaje-ataque {
-  height: 50px;
+
+.subtitulo {
+  color: white;
+  font-size: 20px;
+}
+
+.tarjetas, .tarjetas-ataques {
   display: flex;
-  align-items: center;
+  gap: 10px;
+}
+
+.tarjeta-de-mokepon {
+  width: 180px;
+  height: 100px;
+  background: #11468F;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  color: white;
 }
 
-/* Estilos de las opciones del select */
-#mascotas option {
-  background-color: transparent;
-  color: #333;
+.tarjeta-de-mokepon img {
+  width: 80px;
 }
 
-#mascotas optgroup {
-  background-color: transparent;
-  color: black;
+#boton-mascota {
+  width: 180px;
+  height: 40px;
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 30px;
 }
-#resultados {
+
+input {
+  display: none;
+}
+
+input:checked + label {
+  background-color: #5D8BF4;
+}
+
+#seleccionar-ataque {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-}
-#nombre-jugador,
-#nombre-enemigo {
-  display: grid;
-  place-items: center;
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
-}
-#vidas-enemigo,
-#vidas-jugador,
-#mascota-enemigo,
-#mascota-jugador{
-  display: grid;
-  place-items: center;
-  text-align: center;
-  height: 40;
-}
-#resultado {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 20px;
 }
 
-#ataques-jugador,
-#ataques-enemigo {
-  text-transform: uppercase;
+.boton-de-ataque {
+  background-color: #11468F;
+  padding: 10px;
+  box-sizing: border-box;
   border-radius: 20px;
+  border-color: transparent;
+  width: 180px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+#mensajes {
+  font-weight: bold ;
+  width: 280px;
+  background: #EEEEEE;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#boton-reiniciar {
+  width: 180px;
+  height: 40px;
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 30px;
+}
+
+.ataques {
   display: grid;
-  place-items: center;
-  text-align: center;
-  margin-bottom: 10px;
+  grid-template-columns: 100px 100px;
+  color: white;
 }
 
-/* Estilos del botón de seleccionar */
-button#btn-seleccionar {
-  background-color: #0077cc;
-  color: #fff;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+#vidas-jugador, #vidas-enemigo {
+  font-size: 32px;
+  margin-bottom: 0;
 }
 
-/* Cambio de color del botón al pasar el mouse */
-button#btn-seleccionar:hover {
-  background-color: #005580;
+.ataques-jugador, .ataques-enemigo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Estilos para los botones */
-button {
-  background-color: #0077cc;
-  color: #fff;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-/* Estilos para los botones cuando están en estado hover */
-button:hover {
-  background-color: #005580;
-}
-
-/* Estilos para el botón de reiniciar */
-button#btn-reiniciar {
-  background-color: #0077cc;
-  color: #fff;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-/* Cambio de color del botón de reiniciar al pasar el mouse */
-button#btn-reiniciar:hover {
-  background-color: #2980b9;
-}
-
-/* Estilos de las secciones y mensaje */
-section {
-  margin: 20px;
-  text-align: center;
+@media (max-width: 360px) {
+  .tarjetas, .tarjetas-ataques {
+    flex-direction: column;
+  }
 }
