@@ -82,7 +82,6 @@ input:checked + label {
 }
 
 #mensajes {
-  font-weight: bold ;
   width: 280px;
   background: #EEEEEE;
   padding: 20px;
