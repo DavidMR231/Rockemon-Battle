@@ -76,39 +76,40 @@ class Mokepon {
 }
 let hipodoge = new Mokepon(
   "Hipodoge",
-  "C:/Users/Usuario/Downloads/hipodoge.png",
+  "assets/Hipodoge.png",
   5,
-  "C:/Users/Usuario/Downloads/hipodoge.png"
+  
+  "assets/Hipodoge.png"
 );
 let capipepo = new Mokepon(
   "Capipepo",
-  "C:/Users/Usuario/Downloads/capipepo.png",
+  "assets/Capipepo.png",
   5,
-  "C:/Users/Usuario/Downloads/capipepo.png"
+  "assets/Capipepo.png"
 );
 let ratigueya = new Mokepon(
   "Ratigueya",
-  "C:/Users/Usuario/Downloads/ratigueya.png",
+  "assets/Ratigueya.png",
   5,
-  "C:/Users/Usuario/Downloads/ratigueya.png"
+  "assets/Ratigueya.png"
 );
 let hipodogeEnemigo = new Mokepon(
   "Hipodoge",
-  "C:/Users/Usuario/Downloads/hipodoge.png",
+  "assets/Hipodoge.png",
   5,
-  "C:/Users/Usuario/Downloads/hipodoge.png"
+  "assets/Hipodoge.png"
 );
 let capipepoEnemigo = new Mokepon(
   "Capipepo",
-  "C:/Users/Usuario/Downloads/capipepo.png",
+  "assets/Capipepo.png",
   5,
-  "C:/Users/Usuario/Downloads/capipepo.png"
+  "assets/Capipepo.png"
 );
 let ratigueyaEnemigo = new Mokepon(
   "Ratigueya",
-  "C:/Users/Usuario/Downloads/ratigueya.png",
+  "assets/ratigueya.png",
   5,
-  "C:/Users/Usuario/Downloads/ratigueya.png"
+  "assets/ratigueya.png"
 );
 hipodoge.ataques.push(
   { nombre: "💧", id: "boton-agua" },
