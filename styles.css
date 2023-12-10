@@ -1,15 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&display=swap");
 
-body, html {
+body,
+html {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: linear-gradient(to bottom right, #01132c, #3f0488) no-repeat fixed center;
+  background: linear-gradient(to bottom right, #01132c, #3f0488) no-repeat fixed
+    center;
   background-size: cover; /* Asegura que el fondo cubra toda la pantalla */
+}
+#movimientos{
+  display: flex;
+  gap: 10px;
 }
 
 #ver-mapa {
@@ -18,7 +24,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 
 #seleccionar-mascota {
   display: flex;
@@ -31,15 +36,18 @@ body {
 .titulo {
   color: white;
   font-size: 32px;
-  font-family: 'Fredoka One', cursive;
+  font-family: "Fredoka One", cursive;
+  margin: 15px;
 }
 
 .subtitulo {
   color: white;
-  font-size: 20px;
+  font-size: 32px;
+  margin: 15px;
 }
 
-.tarjetas, .tarjetas-ataques {
+.tarjetas,
+.tarjetas-ataques {
   display: flex;
   gap: 10px;
 }
@@ -47,7 +55,7 @@ body {
 .tarjeta-de-mokepon {
   width: 180px;
   height: 100px;
-  background: #11468F;
+  background: #11468f;
   padding: 10px;
   box-sizing: border-box;
   border-radius: 20px;
@@ -68,7 +76,7 @@ body {
   background: transparent;
   border: 2px solid white;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin-top: 30px;
 }
 
@@ -85,48 +93,93 @@ input:checked + label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
 }
 
 .boton-de-ataque {
-  background-color: #11468F;
+  background-color: #11468f;
   padding: 10px;
   box-sizing: border-box;
   border-radius: 20px;
   border-color: transparent;
   width: 100px;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-#ver-mapa{
+#ver-mapa {
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#mapa{
-  border: 2px solid white;
-}
 
 #mensajes {
   width: 280px;
-  background: #EEEEEE;
+  height: 30px;
+  background: #eeeeee;
   padding: 20px;
   margin-top: 20px;
   border-radius: 20px;
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+#botones-contenedor {
+  position: relative;
+  width: 240px;
+  height: 90px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-#boton-reiniciar {
-  width: 180px;
-  height: 40px;
+#arriba, #izquierda, #derecha, #abajo {
+  width: 80px;
+  height: 30px;
   border-radius: 20px;
   background: transparent;
   border: 2px solid white;
   color: white;
-  font-family: 'Poppins', sans-serif;
-  margin-top: 30px;
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#arriba {
+  top: 0;
+  left: 80px;
+}
+
+#izquierda {
+  top: 40px;
+  left: 0;
+}
+
+#derecha {
+  top: 40px;
+  right: 0;
+}
+
+#abajo {
+  bottom: -15px;
+  left: 80px;
+}
+
+#boton-reiniciar {
+  width: 80px;
+  height: 30px;
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: block; /* Cambiado de flex a block */
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; /* Añadido para mejorar la posición */
+  left: 50%; /* Añadido para centrar horizontalmente */
 }
 
 .ataques {
@@ -135,19 +188,30 @@ input:checked + label {
   color: white;
 }
 
-#vidas-jugador, #vidas-enemigo {
-  font-size: 32px;
+#vidas-jugador,
+#vidas-enemigo {
+  font-size: 24px;
   margin-bottom: 0;
 }
 
-.ataques-jugador, .ataques-enemigo {
+.ataques-jugador,
+.ataques-enemigo {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
-@media (max-width: 360px) {
-  .tarjetas, .tarjetas-ataques {
+@media (max-width: 560px) {
+  .tarjetas,
+  .tarjetas-ataques {
+    flex-direction: column;
+  }
+}
+@media (max-width: 300px) {
+  #ver-mapa div{
+    display: flex;
+    align-items: center;
     flex-direction: column;
   }
 }
