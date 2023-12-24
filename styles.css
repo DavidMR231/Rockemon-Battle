@@ -172,8 +172,8 @@ input:checked + label {
 }
 
 #boton-reiniciar {
-  width: 80px;
-  height: 30px;
+  width: 100px;
+  height: 40px;
   border-radius: 20px;
   background: transparent;
   border: 2px solid white;
