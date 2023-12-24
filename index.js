@@ -1,11 +1,23 @@
+require('dotenv').config();
 const express = require("express")
-const cors = require("cors")
-const port = 8080;
-
 const app = express()
+const cors = require("cors")
+const PORT = process.env.PORT;
+const API_KEY = process.env.API_KEY;
+
 
 app.use(cors())
 app.use(express.json())
+
+const apiKeyValidation = (req, res, next) => {
+  const userApiKey = req.get("x-api-key");
+  if (userApiKey && userApiKey === API_KEY) {
+    next();
+  } else {
+    res.status(401).send("Invalid API key");
+  }
+};
+app.use(apiKeyValidation);
 
 const jugadores = []
 
@@ -101,6 +113,6 @@ app.get("/mokepon/:jugadorId/ataques", (req, res) => {
   })
 })
 
-app.listen(8080, () => {
-  console.log(`El servidor esta funcionando en el puero ${port}`)
+app.listen(PORT, () => {
+  console.log(`El servidor esta funcionando en el puerto ${PORT}`)
 })
