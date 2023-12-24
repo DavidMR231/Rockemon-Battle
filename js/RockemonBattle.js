@@ -31,6 +31,7 @@ let mascotaJugador;
 let mascotaJugadorObjeto;
 let ataquesMokepon;
 let ataquesMokeponEnemigo;
+let ataques;
 let botonFuego;
 let botonAgua;
 let botonTierra;
@@ -213,17 +214,32 @@ function secuenciaAtaque() {
         boton.style.background = "#112f58";
         boton.disabled = true;
       }
-      if(ataqueJugador.length === 5){
-      enviarAtaques()
+      if (ataqueJugador.length === 5) {
+        enviarAtaques();
       }
     });
   });
 }
-function enviarAtaques(){
-  fetch(`http://localhost:8080/mokepon/${jugadorId}/ataques`,{
+function enviarAtaques() {
+  fetch(`http://localhost:8080/mokepon/${jugadorId}/ataques`, {
     method: "post",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ atques : ataqueJugador }),
+    body: JSON.stringify({ ataques: ataqueJugador }),
+  });
+  intervalo = setInterval(obtenerAtaques, 50);
+}
+function obtenerAtaques() {
+  fetch(`http://localhost:8080/mokepon/${enemigoId}/ataques`).then(function (
+    res
+  ) {
+    if (res.ok) {
+      res.json().then(function ({ ataques }) {
+        if (ataques.length === 5) {
+          ataqueEnemigo = ataques;
+          combate();
+        }
+      });
+    }
   });
 }
 function seleccionarMascotaEnemigo(enemigo) {
@@ -254,6 +270,7 @@ function indexAmbosOponente(jugador, enemigo) {
   indexAtaqueEnemigo = ataqueEnemigo[enemigo];
 }
 function combate() {
+  clearInterval(intervalo);
   for (let index = 0; index < ataqueJugador.length; index++) {
     if (ataqueJugador[index] === ataqueEnemigo[index]) {
       indexAmbosOponente(index, index);
@@ -330,7 +347,7 @@ function pintarCanvas() {
   enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y);
   mokeponesEnemigos.forEach(function (mokepon) {
     mokepon.pintarMokepon();
-    revisarColision(mokepon)
+    revisarColision(mokepon);
   });
 }
 function enviarPosicion(x, y) {
@@ -446,8 +463,7 @@ function revisarColision(enemigo) {
   detenerMovimiento();
   clearInterval(intervalo);
   console.log("Se detecto una colision");
-
-  enemigoId = enemigo.id
+  enemigoId = enemigo.id;
   sectionSeleccionarAtaque.style.display = "flex";
   sectionVerMapa.style.display = "none";
   seleccionarMascotaEnemigo(enemigo);
