@@ -17,9 +17,9 @@ class Jugador {
   asignarMokepon(mokepon) {
     this.mokepon = mokepon;
   }
-  actualizarPosicion(x, y){
-    this.x = x
-    this.y = y
+  actualizarPosicion(x, y) {
+    this.x = x;
+    this.y = y;
   }
 }
 
@@ -68,9 +68,9 @@ app.post("/mokepon/:jugadorId/posicion", (req, res) => {
   );
 
   if (jugadorIndex >= 0) {
-    jugadores[jugadorIndex].actualizarPosicion(x, y)
+    jugadores[jugadorIndex].actualizarPosicion(x, y);
   }
-  res.end()
+  res.end();
 });
 
 app.listen(8080, () => {
